@@ -35,7 +35,7 @@ class SirinWalletInterface extends WalletInterface {
 
 class SirinWallet {
   constructor() {
-    console.log("create sirinwallet")
+    console.log('create sirinwallet');
     this.identifier = mewConnectType;
     this.isHardware = IS_HARDWARE;
     this.conn = new SirinConnection.Initiator();
@@ -86,19 +86,19 @@ class SirinWallet {
   }
 }
 const createWallet = async qrcode => {
-  console.log("creatin wallet")
+  console.log('creatin wallet');
   const _SirinWallet = new SirinWallet();
-  console.log(qrcode)
+  console.log(qrcode);
   const _tWallet = await _SirinWallet.init(qrcode);
   return _tWallet;
 };
 const signalerConnect = (url, conn) => {
-  console.log("connect to service")
+  console.log('connect to service');
   return new Promise(resolve => {
-    console.log("send event initiatorStart")
+    console.log('send event initiatorStart');
     conn.initiatorStart(url);
     conn.on('RtcConnectedEvent', () => {
-      console.log("connected, now asking for address")
+      console.log('connected, now asking for address');
       conn.sendRtcMessage('address', '');
       conn.once('address', data => {
         resolve(data.address);

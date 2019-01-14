@@ -1,3 +1,9 @@
+### Release v5.0.0-beta.2
+
+### Feature
+
+- Integrate SirinLabs Finney wallet *ADD PULL REQUEST*
+
 ### Release v5.0.0-beta.1
 
 ### Devop

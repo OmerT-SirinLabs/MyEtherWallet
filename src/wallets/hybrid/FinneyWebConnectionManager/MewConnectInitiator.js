@@ -129,7 +129,7 @@ export default class FinneyWebConnectInitiator extends FinneyWebConnectCommon {
 
   // Initalize a websocket connection with the signal server
   async initiatorStart(url) {
-    console.log("start for url : " + url)
+    console.log('start for url : ' + url);
     if (this.signalUrl === null) {
       this.signalUrl = url;
     }
@@ -140,7 +140,7 @@ export default class FinneyWebConnectInitiator extends FinneyWebConnectCommon {
     );
     this.connId = this.mewCrypto.bufferToConnId(this.keys.pub);
 
-    console.log("start for connId : " + this.connId )
+    console.log('start for connId : ' + this.connId);
     this.displayCode(this.keys.pvt.toString('hex'));
     this.uiCommunicator(this.lifeCycle.signatureCheck);
     const options = {
@@ -155,8 +155,8 @@ export default class FinneyWebConnectInitiator extends FinneyWebConnectCommon {
     };
     this.socketManager = this.io(url, options);
     this.socket = this.socketManager.connect();
-    
-    console.log("start for socket : " + this.socket)
+
+    console.log('start for socket : ' + this.socket);
     this.initiatorConnect(this.socket);
   }
 
@@ -290,7 +290,7 @@ export default class FinneyWebConnectInitiator extends FinneyWebConnectCommon {
     return async data => {
       try {
         debug('SIGNAL', JSON.stringify(data));
-        const stringifiedData = JSON.stringify(data)
+        const stringifiedData = JSON.stringify(data);
         this.uiCommunicator(this.lifeCycle.sendOffer);
         this.socketEmit(this.signals.offerSignal, {
           data: stringifiedData,
@@ -306,7 +306,7 @@ export default class FinneyWebConnectInitiator extends FinneyWebConnectCommon {
   // Handle the WebRTC ANSWER from the opposite (mobile) peer
   async recieveAnswer(data) {
     try {
-      console.log(data)
+      console.log(data);
       const plainTextOffer = data.data;
       this.rtcRecieveAnswer({ data: plainTextOffer });
     } catch (e) {
@@ -351,7 +351,8 @@ export default class FinneyWebConnectInitiator extends FinneyWebConnectCommon {
     this.p.on(this.rtcEvents.signal, signalListener.bind(this));
     this.p._pc.addEventListener('iceconnectionstatechange', evt => {
       // eslint-disable-next-line no-undef
-      if(typeof jest === 'undefined'){ // included because target is not defined in jest
+      if (typeof jest === 'undefined') {
+        // included because target is not defined in jest
         debug(`iceConnectionState: ${evt.target.iceConnectionState}`);
         if (
           evt.target.iceConnectionState === 'connected' ||
@@ -380,9 +381,8 @@ export default class FinneyWebConnectInitiator extends FinneyWebConnectCommon {
 
   async onData(data) {
     debug('DATA RECEIVED', data.toString());
-    console.log(data.toString())
+    console.log(data.toString());
     try {
-      
       if (this.isJSON(data)) {
         const parsed = JSON.parse(data);
         debug('DECRYPTED DATA RECEIVED', parsed);
