@@ -4,12 +4,16 @@
       ref="mewconnectModal"
       :network-and-address-open="networkAndAddressOpen"
     />
-
+    <finney-connect-modal
+      ref="finneywebconnectModal"
+      :network-and-address-open="networkAndAddressOpen"
+    />
     <hardware-modal
       ref="hardwareModal"
       :network-and-address-open="networkAndAddressOpen"
       @hardwareRequiresPassword="hardwarePasswordModalOpen"
       @hardwareWalletOpen="hardwareWalletOpen"
+      @hardwareWebRtcOpen="hardwareWebRtcWalletConnectionOpen"
     />
 
     <hardware-password-modal
@@ -85,6 +89,7 @@ import HardwareModal from '../../components/HardwareModal';
 import HardwarePasswordModal from '../../components/HardwarePasswordModal';
 import MetamaskModal from '../../components/MetamaskModal';
 import MewConnectModal from '../../components/MewConnectModal';
+import FinneyWebConnectModal from '../../components/FinneyConnectModal';
 import NetworkAndAddressModal from '../../components/NetworkAndAddressModal';
 import PasswordModal from '../../components/PasswordModal';
 import PrivateKeyModal from '../../components/PrivateKeyModal';
@@ -106,6 +111,7 @@ import { mapGetters } from 'vuex';
 export default {
   components: {
     'mew-connect-modal': MewConnectModal,
+    'finney-connect-modal': FinneyWebConnectModal,
     'network-and-address-modal': NetworkAndAddressModal,
     'hardware-modal': HardwareModal,
     'hardware-password-modal': HardwarePasswordModal,
@@ -229,6 +235,9 @@ export default {
         console.error(e); // todo replace with proper error
         // close the open modal and present the user with a reason for the error (if appropriate)
       }
+    },
+    hardwareWebRtcWalletConnectionOpen() {
+      this.$refs.finneywebconnectModal.$refs.FinneyWebConnect.show();
     }
   }
 };

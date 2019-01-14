@@ -6,7 +6,7 @@ import {
 } from './hardware';
 import WalletInterface from './WalletInterface';
 import { MnemonicWallet } from './software';
-import { MewConnectWallet } from './hybrid';
+import { MewConnectWallet, FinneyWallet } from './hybrid';
 
 export {
   LedgerWallet,
@@ -14,6 +14,7 @@ export {
   BitBoxWallet,
   SecalotWallet,
   MewConnectWallet,
+  FinneyWallet,
   WalletInterface,
   MnemonicWallet
 };

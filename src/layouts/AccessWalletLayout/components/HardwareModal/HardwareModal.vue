@@ -55,6 +55,17 @@
           />
           <span>Secalot</span>
         </li>
+        <li
+          :class="selected === 'finney' ? 'active' : ''"
+          @click="select('finney')"
+        >
+          <img class="icon" src="~@/assets/images/icons/button-finney.png" />
+          <img
+            class="icon-hover"
+            src="~@/assets/images/icons/button-finney.png"
+          />
+          <span>Finney</span>
+        </li>
       </ul>
     </div>
     <div class="button-container">
@@ -134,6 +145,9 @@ export default {
             walletConstructor: SecalotWallet,
             hardwareBrand: 'Secalot'
           });
+          break;
+        case 'finney':
+          this.$emit('hardwareWebRtcOpen');
           break;
         default:
           // eslint-disable-next-line

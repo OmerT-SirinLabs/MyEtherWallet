@@ -1,3 +1,4 @@
 import MewConnectWallet from './MEWconnect';
+import FinneyWallet from './FinneyConnect';
 
-export { MewConnectWallet };
+export { MewConnectWallet, FinneyWallet };

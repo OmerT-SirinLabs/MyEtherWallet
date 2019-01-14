@@ -35,7 +35,14 @@
     "vue-mq": "1.0.1",
     "vue-router": "3.0.2",
     "vuex": "3.0.1",
-    "websocket": "1.0.28"
+    "websocket": "1.0.28",
+    "browser-or-node": "1.1.0",
+    "detect-browser": "3.0.1",
+    "eccrypto": "1.1.0",
+    "logging": "3.2.0",
+    "simple-peer": "9.2.0",
+    "socket.io-client": "2.2.0",
+    "webrtc-adapter": "7.1.1"
   },
   "devDependencies": {
     "@ledgerhq/hw-app-eth": "4.32.0",

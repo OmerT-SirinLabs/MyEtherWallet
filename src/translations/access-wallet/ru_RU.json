@@ -31,5 +31,9 @@
   "mewConnectTitle": "Доступ с помощью MEWconnect",
   "mewConnectDesc1": "Используйте приложение MEWconnect для сканирования указанного выше QR-кода",
   "mewConnectDesc2": "Нет приложения? Загрузите сейчас.",
+  "finneyWebConnectTitle": "Access by Finney smartphone",
+  "finneyWebConnectDesc": "Use My Ether Wallet to access my finney",
+  "finneyWebConnectDesc1": "Please use Sirin Wallet App to scan the QR code above",
+  "finneyWebConnectDesc2": "Don't have the App? Download now.",
   "notARecommendedWay": "This is NOT a recommended way of accessing a wallet. This information is sensitive, and these options should only be used in offline settings by experienced crypto users."
 }
