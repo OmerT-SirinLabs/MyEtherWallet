@@ -2,7 +2,7 @@
 
 ### Feature
 
-- Integrate SirinLabs Finney wallet *ADD PULL REQUEST*
+- Integrate SirinLabs Finney wallet _ADD PULL REQUEST_
 
 ### Release v5.0.0-beta.1
 
