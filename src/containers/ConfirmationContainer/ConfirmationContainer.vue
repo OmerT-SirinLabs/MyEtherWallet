@@ -288,13 +288,13 @@ export default {
       this.reset();
       if (message !== null) this.successMessage = message;
       if (linkMessage !== null) this.linkMessage = linkMessage;
-      this.$refs.successModal.$refs.success.show();
+      //this.$refs.successModal.$refs.success.show();
     },
     showErrorModal(message, linkMessage) {
       this.reset();
       if (message !== null) this.successMessage = message;
       if (linkMessage !== null) this.linkMessage = linkMessage;
-      this.$refs.errorModal.$refs.success.show();
+      //this.$refs.errorModal.$refs.success.show();
     },
     parseRawTx(tx) {
       this.raw = tx;

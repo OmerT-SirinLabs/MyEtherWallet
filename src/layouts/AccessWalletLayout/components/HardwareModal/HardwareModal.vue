@@ -62,7 +62,7 @@
           <img class="icon" src="~@/assets/images/icons/button-finney.png" />
           <img
             class="icon-hover"
-            src="~@/assets/images/icons/button-finney.png"
+            src="~@/assets/images/icons/button-finney-hover.png"
           />
           <span>Finney</span>
         </li>

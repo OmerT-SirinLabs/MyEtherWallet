@@ -1,16 +1,15 @@
-import SirinConnection from '../FinneyWebConnectionManager/index';
+import SirinConnection from 'sirin_wallet_web_sdk';
 import ethTx from 'ethereumjs-tx';
 import WalletInterface from '@/wallets/WalletInterface';
 import { MEW_CONNECT as mewConnectType } from '../../bip44/walletTypes';
 import {
   getSignTransactionObject,
   sanitizeHex,
-  getBufferFromHex,
-  calculateChainIdFromV
+  getBufferFromHex
 } from '../../utils';
 import * as ethUtil from 'ethereumjs-util';
 
-const SIGNALER_URL = 'https://9c739711.ngrok.io';
+const SIGNALER_URL = 'https://1e89310a.ngrok.io'; //'http://connect.sirinlabs.com:80';
 const IS_HARDWARE = true;
 
 // TODO: add listener and ui notification on RtcConnectedEvent and RtcClosedEvent
@@ -43,20 +42,10 @@ class SirinWallet {
   async init(qrcode) {
     this.conn.on('codeDisplay', qrcode);
     const txSigner = async tx => {
-      const networkId = tx.chainId;
       return new Promise(resolve => {
         this.conn.sendRtcMessage('signTx', JSON.stringify(tx));
         this.conn.once('signTx', result => {
           tx = new ethTx(sanitizeHex(result));
-          const signedChainId = calculateChainIdFromV(tx.v);
-          if (signedChainId !== networkId)
-            throw new Error(
-              'Invalid networkId signature returned. Expected: ' +
-                networkId +
-                ', Got: ' +
-                signedChainId,
-              'InvalidNetworkId'
-            );
           resolve(getSignTransactionObject(tx));
         });
       });

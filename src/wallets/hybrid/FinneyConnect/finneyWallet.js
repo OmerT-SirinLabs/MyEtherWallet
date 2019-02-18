@@ -1,4 +1,4 @@
-import MewConnect from '../FinneyWebConnectionManager';
+import FinneyConnect from 'sirin_wallet_web_sdk';
 import * as ethUtil from 'ethereumjs-util';
 import EthereumjsTx from 'ethereumjs-tx';
 
@@ -26,11 +26,11 @@ export default class FinneyWallet {
     };
 
     this.signalerUrl =
-      currentOptions.signalerUrl || 'https://9c739711.ngrok.io';
+      currentOptions.signalerUrl || 'https://1e89310a.ngrok.io'; //'http://connect.sirinlabs.com:80';
     this.networkId = 1;
-    console.log(MewConnect);
-    console.log(MewConnect.Client);
-    this.mewConnect = MewConnect.Client.init(null, null);
+    console.log(FinneyConnect);
+    console.log(FinneyConnect.Client);
+    this.mewConnect = FinneyConnect.Client.init(null, null);
 
     this.getAccounts = this.getAccounts.bind(this);
     this.getMultipleAccounts = this.getMultipleAccounts.bind(this);
